@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Quiz</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="quiz-card">
+
+<h2>
+
+<i class="fa-solid fa-circle-question"></i>
+
+Question {{ question_num + 1 }}
+
+</h2>
+
+<h3>{{ question }}</h3>
+
+<form method="POST">
+
+{% for option in options %}
+
+<label class="option">
+
+<input
+type="radio"
+name="answer"
+value="{{ option[0] }}"
+required>
+
+{{ option }}
+
+</label>
+
+{% endfor %}
+
+<button class="next-btn">
+
+Next
+
+<i class="fa-solid fa-arrow-right"></i>
+
+</button>
+
+</form>
+
+</div>
+
+</body>
+
+</html>
